@@ -1,0 +1,208 @@
+// Color Variables
+// ---------
+$black: #1F1F1F;
+$white: #ffffff;
+$light-blue: #abcfff;
+
+// Breakpoints
+// -----------
+
+$phone: "(min-width: 0px) and (max-width: 639px)";
+$mobile-nav: "(min-width: 0px) and (max-width: 895px)";
+$tablet: "(min-width: 640px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
+
+// Fade-In Animations
+// ------------------
+
+@-webkit-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
+
+.fade-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+// Global Styles
+// -------------
+
+html, body {
+  background: $black;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 1em;
+  align-items: flex-start;
+}
+
+main {
+  padding: 0 1em 0 1em;
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+}
+
+footer {
+  background: lighten($black, 5%);
+  padding: .5em .5em .5em 1em;
+  color: $white;
+  font-size: .8em;
+  align-items: flex-end;
+}
+
+// Content
+.content {
+  width: 100%;
+}
+
+// Typography
+// ----------
+
+// Import Libre Baskerville & Open Sans
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:700|Open+Sans');
+
+// Font Family Variables
+$heading-font: 'Libre Baskerville', serif;
+$paragraph-font: 'Open Sans', sans-serif;
+
+h1, h2, h3, h4, h5, h6 {
+  color: $white;
+  font-family: $heading-font;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  font-family: $heading-font;
+  font-size: 1em;
+  color: $white;
+  margin: 0;
+  max-width: 800px;
+}
+
+.speaker {
+  display: block;
+  margin-top: 1em;
+  font-family: $paragraph-font;
+  font-size: .8em;
+  text-transform: uppercase;
+  &::before {
+    content: "- ";
+  }
+  // Animation Delay
+  animation-delay: .5s;
+}
+
+p, a, span {
+  color: $white;
+  font-family: $paragraph-font;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Button Container
+// ----------------
+
+.button-container {
+  margin-top: 1em;
+  max-width: 15em;
+  display: flex;
+}
+
+
+// Button Mixin
+// ------------
+
+$button-hover-color: $white;
+
+@mixin button () {
+  background: none;
+  display: block;
+  margin-top: 1em;
+  max-width: 15em;
+  border: 5px solid $white;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1em 0 1em 0;
+  transition: 180ms ease border, 180ms ease color, 180ms ease background;
+  // Hover State
+  &:hover {
+    background: $button-hover-color;
+    color: $black;
+  }
+  // Active State
+  &:active {
+    background: darken($button-hover-color, 15%);
+    border: 5px solid darken($button-hover-color, 15%);
+    color: $black;
+  }
+}
+
+// Button Classes
+.button {
+  @include button;
+}
+
+// Small Button
+@mixin small-button {
+  margin-right: 1em;
+  background: none;
+  display: block;
+  margin-top: 1em;
+  border: 2px solid $white;
+  font-size: .6em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1em 1.5em 1em 1.5em;
+  transition: 180ms ease border, 180ms ease color, 180ms ease background;
+  // Hover State
+  &:hover {
+    background: $button-hover-color;
+    color: $black;
+  }
+  // Active State
+  &:active {
+    background: darken($button-hover-color, 15%);
+    border: 2px solid darken($button-hover-color, 15%);
+    color: $black;
+  }
+}
+
+.small-button, .new-quote-button {
+  @include small-button;
+  flex-grow: 1;
+  // Animation Delay
+  animation-delay: 1s;
+}
+
+.new-quote-button {
+  // Animation Delay
+  animation-delay: 1.5s;
+}

@@ -1,0 +1,21 @@
+{% extends "index.njk" %}
+
+{% block header %}
+<header>
+  <a href="/"><h1>Q</h1></a>
+</header>
+{% endblock %}
+
+{% block main %}
+<blockquote class="fade-in" cite="http://quotesondesign.com">
+</blockquote>
+<span class="speaker fade-in"></span>
+<div class="button-container">
+  <a class="small-button fade-in" href="" target="_blank">Tweet</a>
+  <a class="new-quote-button fade-in" href="#" onclick="myFunction()">New Quote</a>
+</div>
+{% endblock %}
+
+{% block ajax %}
+<script src="./js/app.js"></script>
+{% endblock %}
