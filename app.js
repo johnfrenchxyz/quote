@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/result-page', (req, res) => {
-	res.render('pages/result-page.njk');
+	res.render('result-page.njk');
 });
 
 app.get('/[a-z-]+', (req, res) => {
