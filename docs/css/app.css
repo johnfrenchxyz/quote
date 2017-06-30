@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:700|Open+Sans");
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    opacity: 1\9;
+    /* IE9 only */ }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+    opacity: 1\9;
+    /* IE9 only */ }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    opacity: 1\9;
+    /* IE9 only */ }
+  to {
+    opacity: 1; } }
+
+.fade-in {
+  opacity: 0;
+  /* make things invisible upon start */
+  -webkit-animation: fadeIn ease-in 1;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s; }
+
+html, body {
+  background: #1F1F1F;
+  height: 100%; }
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column; }
+
+header {
+  padding: 1em;
+  align-items: flex-start; }
+
+main {
+  padding: 0 1em 0 1em;
+  flex-grow: 2;
+  display: flex;
+  align-items: center; }
+
+footer {
+  background: #2c2c2c;
+  padding: .5em .5em .5em 1em;
+  color: #ffffff;
+  font-size: .8em;
+  align-items: flex-end; }
+
+.content {
+  width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+  font-family: "Libre Baskerville", serif; }
+
+h1 {
+  font-size: 3em;
+  margin: 0;
+  padding: 0; }
+
+blockquote {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1em;
+  color: #ffffff;
+  margin: 0;
+  max-width: 800px; }
+
+.speaker {
+  display: block;
+  margin-top: 1em;
+  font-family: "Open Sans", sans-serif;
+  font-size: .8em;
+  text-transform: uppercase;
+  animation-delay: .5s; }
+  .speaker::before {
+    content: "- "; }
+
+p, a, span {
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif; }
+
+a {
+  text-decoration: none; }
+
+.button-container {
+  margin-top: 1em;
+  max-width: 15em;
+  display: flex; }
+
+.button {
+  background: none;
+  display: block;
+  margin-top: 1em;
+  max-width: 15em;
+  border: 5px solid #ffffff;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1em 0 1em 0;
+  transition: 180ms ease border, 180ms ease color, 180ms ease background; }
+  .button:hover {
+    background: #ffffff;
+    color: #1F1F1F; }
+  .button:active {
+    background: #d9d9d9;
+    border: 5px solid #d9d9d9;
+    color: #1F1F1F; }
+
+.small-button, .new-quote-button {
+  margin-right: 1em;
+  background: none;
+  display: block;
+  margin-top: 1em;
+  border: 2px solid #ffffff;
+  font-size: .6em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1em 1.5em 1em 1.5em;
+  transition: 180ms ease border, 180ms ease color, 180ms ease background;
+  flex-grow: 1;
+  animation-delay: 1s; }
+  .small-button:hover, .new-quote-button:hover {
+    background: #ffffff;
+    color: #1F1F1F; }
+  .small-button:active, .new-quote-button:active {
+    background: #d9d9d9;
+    border: 2px solid #d9d9d9;
+    color: #1F1F1F; }
+
+.new-quote-button {
+  animation-delay: 1.5s; }
